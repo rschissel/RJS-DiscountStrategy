@@ -25,11 +25,11 @@ public class Receipt {
 
     public final void addProduct(String productID, Discount discount, double quantity) {
        LineItem[] temp = new LineItem[lineItems.length + 1];
-       for(int l = 0; l > temp.length; l++){
-           temp[l].setProduct(ds.findProductByID(productID));
-           temp[l].setDiscount(discount);
-           temp[l].setQty(quantity);
-       }
+//       for(int l = 0; l > temp.length; l++){
+//           temp[l].setProduct(ds.findProductByID(productID));
+//           temp[l].setDiscount(discount);
+//           temp[l].setQty(quantity);
+//       }
        System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
     }
 
