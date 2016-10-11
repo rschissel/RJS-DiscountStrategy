@@ -22,9 +22,9 @@ public class InMemoryDatabase implements DataStore {
         };
 
         this.products = new Product[]{
-            new Product("P100", "Holy Crap! Holy Water", 6.66),
-            new Product("P101", "TrustBam Lie Detector", 12.99),
-            new Product("P102 ", "Viva la Zapper Taser", 17.89)
+            new Product("P100", "Holy Crap! Holy Water", 6.66, new DiscountNotApplicable()),
+            new Product("P101", "TrustBam Lie Detector", 12.99, new PercentageOffDiscount(.75)),
+            new Product("P102", "Viva la Zapper Taser", 17.89, new QuantityDiscount(2, .1))
         };
 
     }

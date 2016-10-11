@@ -10,13 +10,14 @@ package rjs.discountstrategy;
  * @author Ryan Schissel
  */
 public class POSTerminal {
-    private DataStore ds = new InMemoryDatabase();
+    private DataStore ds;
     private Receipt receipt;
     private ReceiptOutput output = new ConsoleOutput();
     private OutputManager om = new OutputManager(output);
     
-    public final void createSale(String customerID) {
-         this.receipt = new Receipt(customerID);
+    public final void createSale(String customerID, DataStore ds) {
+        this.ds = ds;
+         this.receipt = new Receipt(customerID, ds);
     }
 
     public final void endSale() {
@@ -24,8 +25,7 @@ public class POSTerminal {
        
     }
 
-    public final void addDiscountedProductToSale(String productID, double purchasedQuantity, Discount discount, double discountedQuantity) {
-       receipt.addProduct(productID, discount, purchasedQuantity);
-       receipt.applyDiscount(discount, purchasedQuantity, discountedQuantity);
+    public final void addDiscountedProductToSale(String productID, double purchasedQuantity) {
+       receipt.addProduct(productID, purchasedQuantity);
     }
 }

@@ -14,13 +14,24 @@ public class Product {
     private String prodID;
     private String prodName;
     private double unitCost;
+    private Discount discount;
+
     
-    public Product(String prodID, String prodName, double unitCost) {
+    public Product(String prodID, String prodName, double unitCost, Discount discount) {
         this.setProdID(prodID); 
         this.setProdName(prodName);
         this.setUnitCost(unitCost);
+        this.discount = discount;
     }
 
+     public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+    
     public final String getProdID() {
         return prodID;
     }

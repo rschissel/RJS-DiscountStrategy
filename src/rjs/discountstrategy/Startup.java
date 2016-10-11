@@ -17,10 +17,12 @@ public class Startup {
     public static void main(String[] args) {
         String customerID = "C102";
         POSTerminal posTerm = new POSTerminal();
-        posTerm.createSale(customerID);
-        posTerm.addDiscountedProductToSale("P100", 1, new DiscountNotApplicable(), 0);
-        posTerm.addDiscountedProductToSale("P102", 2, new PercentageOffDiscount(25), 1);
-        posTerm.addDiscountedProductToSale("P103", 3, new QuantityDiscount(2, 1), 2);
+        DataStore ds = new InMemoryDatabase();
+        posTerm.createSale(customerID, ds);
+        posTerm.addDiscountedProductToSale("P100", 1);
+        posTerm.addDiscountedProductToSale("P101", 2);
+        posTerm.addDiscountedProductToSale("P102", 3);
         posTerm.endSale();
+        
     }
 }

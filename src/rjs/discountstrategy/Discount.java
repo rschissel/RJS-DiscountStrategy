@@ -10,7 +10,7 @@ package rjs.discountstrategy;
  * @author Ryan Schissel
  */
 public interface Discount {
-        public abstract double calculateDiscountAmount(double minQuantity,double purchasedQuantity, double discountedQuantity, double pricePerUnit);
+        public abstract double calculateDiscountAmount(double purchasedQuantity, double pricePerUnit);
         public abstract double getMinQty();
     
 }

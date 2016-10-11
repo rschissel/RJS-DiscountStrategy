@@ -17,7 +17,7 @@ public class PercentageOffDiscount implements Discount{
    }
     
     @Override
-     public double calculateDiscountAmount(double minQuantity, double purchasedQuantity, double discountedQuantity, double pricePerUnit) {
+     public double calculateDiscountAmount(double purchasedQuantity, double pricePerUnit) {
         this.minQuantity = minQuantity;
         return (pricePerUnit - (pricePerUnit * this.percentage)) * purchasedQuantity;
     }

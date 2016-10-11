@@ -13,12 +13,12 @@ public class QuantityDiscount implements Discount {
 
     private double minQuantity;
     private double rate;
-    public QuantityDiscount(double quantity, double rate){
-        this.minQuantity = quantity;
+    public QuantityDiscount(double minQty, double rate){
+        this.minQuantity = minQty;
         this.rate = rate;
     }
     @Override
-    public double calculateDiscountAmount(double minQuantity, double purchasedQuantity, double discountedQuantity, double pricePerUnit) {
+    public double calculateDiscountAmount(double purchasedQuantity, double pricePerUnit) {
         if (validateQuantity(purchasedQuantity)) {
             return pricePerUnit - (this.rate * pricePerUnit);
         } else {

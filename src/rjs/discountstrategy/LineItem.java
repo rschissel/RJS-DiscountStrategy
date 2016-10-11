@@ -13,14 +13,14 @@ public class LineItem {
 
     private Product product;
     private Discount discount;
-    private double unitCost;
-    private double qty;
     
-    public LineItem(Product product, Discount discount, double quantity){
-        this.setProduct(product);
-        this.setDiscount(discount);
-        this.setUnitCost(product.getUnitCost());
+    private double qty;
+    private DataStore db;
+    
+    public LineItem(String productID, double quantity,DataStore db){
+        this.setDb(db);
         this.setQty(quantity);
+        this.product = db.findProductByID(productID);
     }
 
     public double getQty() {
@@ -29,13 +29,6 @@ public class LineItem {
 
     public void setQty(double qty) {
         this.qty = qty;
-    }
-    public final double getUnitCost() {
-        return unitCost;
-    }
-
-    public final void setUnitCost(double unitCost) {
-        this.unitCost = unitCost;
     }
 
     public final Product getProduct() {
@@ -46,11 +39,12 @@ public class LineItem {
         this.product = product;
     }
 
-    public final Discount getDiscount() {
-        return discount;
+    public DataStore getDb() {
+        return db;
     }
 
-    public final void setDiscount(Discount discount) {
-        this.discount = discount;
+    public void setDb(DataStore db) {
+        this.db = db;
     }
+    
 }
