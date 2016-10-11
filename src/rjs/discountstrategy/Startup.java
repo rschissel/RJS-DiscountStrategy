@@ -15,7 +15,7 @@ public class Startup {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String customerID = "C101";
+        String customerID = "C102";
         POSTerminal posTerm = new POSTerminal();
         posTerm.createSale(customerID);
         posTerm.addDiscountedProductToSale("P100", 1, new DiscountNotApplicable(), 0);
