@@ -19,7 +19,6 @@ public class Product implements Validator {
     private String[] illegalChars = new String[]{"!", "@", "$", "%", "^", "*", "(", ")",
         "+", "[", "]", "{", "}", "|", "\'", "\"", "\\", "/", "<", ">", ".",
         ",", ":", ";"};
-
     public Product(String prodID, String prodName, double unitCost, Discount discount) {
         this.setProdID(prodID);
         this.setProdName(prodName);
