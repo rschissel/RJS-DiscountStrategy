@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class VideoOutput implements ReceiptOutput{
 
     @Override
-    public void outputReceipt(Receipt receipt) {
+    public final void outputReceipt(Receipt receipt) {
         JOptionPane.showMessageDialog(null, receipt.getReceiptContents());
     }
     

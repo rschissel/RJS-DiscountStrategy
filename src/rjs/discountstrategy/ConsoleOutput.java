@@ -12,7 +12,7 @@ package rjs.discountstrategy;
 public class ConsoleOutput implements ReceiptOutput{
 
     @Override
-    public void outputReceipt(Receipt receipt) {
+    public final void outputReceipt(Receipt receipt) {
         System.out.println(receipt.getReceiptContents());
     }
 

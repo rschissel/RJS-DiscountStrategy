@@ -12,10 +12,11 @@ package rjs.discountstrategy;
 public class POSTerminal {
     private DataStore ds;
     private Receipt receipt;
-    private ReceiptOutput output = new VideoOutput();
-    private OutputManager om = new OutputManager(output);
-    
-    public final void createSale(String customerID, DataStore ds) {
+    private ReceiptOutput output;
+    private OutputManager om;
+    public final void createSale(String customerID, DataStore ds, ReceiptOutput output, OutputManager om) {
+        this.output = output;
+        this.om = om;
         this.ds = ds;
          this.receipt = new Receipt(customerID, ds);
     }

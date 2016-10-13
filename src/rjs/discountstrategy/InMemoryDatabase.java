@@ -33,7 +33,7 @@ public class InMemoryDatabase implements DataStore {
     }
 
     @Override
-    public Customer findCustomerByID(String customerID) {
+    public final Customer findCustomerByID(String customerID) {
         Customer customer = null;
         for (Customer c : customers) {
             if (customerID.equals(c.getCustID())) {
@@ -47,7 +47,7 @@ public class InMemoryDatabase implements DataStore {
     }
 
     @Override
-    public Product findProductByID(String productID) {
+    public final Product findProductByID(String productID) {
         Product product = null;
         for (Product p : products) {
             if (productID.equals(p.getProdID())) {

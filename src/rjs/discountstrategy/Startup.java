@@ -18,7 +18,9 @@ public class Startup {
         String customerID = "C102";
         POSTerminal posTerm = new POSTerminal();
         DataStore ds = new InMemoryDatabase();
-        posTerm.createSale(customerID, ds);
+        ReceiptOutput receiptOutput = new VideoOutput();
+        OutputManager om = new OutputManager(receiptOutput);
+        posTerm.createSale(customerID, ds, receiptOutput, om);
         posTerm.addDiscountedProductToSale("P100", 1);
         posTerm.addDiscountedProductToSale("P101", 2);
         posTerm.addDiscountedProductToSale("P102", 3);

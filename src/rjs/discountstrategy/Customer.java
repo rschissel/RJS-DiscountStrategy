@@ -58,7 +58,7 @@ public class Customer implements Validator{
         this.lastName = lastName;
     }
     @Override
-    public boolean validate(String input) {
+    public final boolean validate(String input) {
         for (String i : illegalChars){
             if (!input.contains(i) || input.matches(format)||input.equals(null)){
                 return true;

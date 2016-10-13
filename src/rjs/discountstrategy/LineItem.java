@@ -21,11 +21,11 @@ public class LineItem {
         this.product = db.findProductByID(productID);
     }
 
-    public double getQty() {
+    public final double getQty() {
         return qty;
     }
 
-    public void setQty(double qty) {
+    public final void setQty(double qty) {
         
         this.qty = qty;
     }
@@ -38,11 +38,11 @@ public class LineItem {
         this.product = product;
     }
 
-    public DataStore getDb() {
+    public final DataStore getDb() {
         return db;
     }
 
-    public void setDb(DataStore db) {
+    public final void setDb(DataStore db) {
         this.db = db;
     }
     

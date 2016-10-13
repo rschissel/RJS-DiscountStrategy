@@ -13,12 +13,12 @@ public class DiscountNotApplicable implements Discount {
     private double minQuantity = 0;
     
     @Override
-     public double calculateDiscountAmount(double purchasedQuantity, double pricePerUnit) {
+     public final double calculateDiscountAmount(double purchasedQuantity, double pricePerUnit) {
         return 0.0;
     }
 
    @Override
-    public double getMinQty() {
+    public final double getMinQty() {
         return minQuantity;
     }
 

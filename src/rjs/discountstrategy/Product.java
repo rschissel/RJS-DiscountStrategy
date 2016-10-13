@@ -26,11 +26,11 @@ public class Product implements Validator {
         this.discount = discount;
     }
 
-    public Discount getDiscount() {
+    public final Discount getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Discount discount) {
+    public final void setDiscount(Discount discount) {
         this.discount = discount;
     }
 
@@ -62,7 +62,7 @@ public class Product implements Validator {
     }
 
     @Override
-        public boolean validate(String input) {
+        public final boolean validate(String input) {
         for (String i : illegalChars) {
             if (!input.matches(format) || input.equals(null) || input.contains(i)) {
                return false;
