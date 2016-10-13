@@ -5,6 +5,8 @@
  */
 package rjs.discountstrategy;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Ryan Schissel
@@ -13,7 +15,8 @@ public class InMemoryDatabase implements DataStore {
 
     private Customer[] customers;
     private Product[] products;
-
+    
+     
     public InMemoryDatabase() {
         this.customers = new Customer[]{
             new Customer("Lucas", "Tepid", "C100"),
@@ -46,12 +49,13 @@ public class InMemoryDatabase implements DataStore {
     @Override
     public Product findProductByID(String productID) {
         Product product = null;
-        for (Product p : products){
-           if (productID.equals(p.getProdID())) {
-               product = p;
-               break;
-           }
+        for (Product p : products) {
+            if (productID.equals(p.getProdID())) {
+                product = p;
+                break;
+            }
         }
         return product;
     }
+
 }

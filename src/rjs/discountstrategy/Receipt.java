@@ -5,40 +5,30 @@
  */
 package rjs.discountstrategy;
 
-import java.util.Arrays;
 
 /**
  *
  * @author Ryan Schissel
  */
-public class Receipt {
+public class Receipt{
     
     private Customer customer;
     private LineItem[] lineItems = new LineItem[0];
     private DataStore ds;
-    private double subtotal;
     private double total;
-
     public Receipt(String customerID, DataStore ds) {
         this.ds = ds;
         this.customer = ds.findCustomerByID(customerID);
     }
 
-    public final void addProduct(String productID, double quantity) {
+    public final void addProduct(String productID, double quantity, DataStore ds) {
        LineItem item = new LineItem(productID,quantity, ds);
        LineItem[] temp = new LineItem[lineItems.length + 1];
-//       for(int l = 0; l > temp.length; l++){
-//           temp[l].setProduct(ds.findProductByID(productID));
-//           temp[l].setDiscount(discount);
-//           temp[l].setQty(quantity);
-//       }
        System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
        temp[temp.length-1] = item;
        lineItems = temp;
     }
-
     
-
     public final String getReceiptContents() {
         StringBuilder sb = new StringBuilder();
         sb.append("Customer Name: ");
@@ -58,7 +48,7 @@ public class Receipt {
             sb.append(l.getProduct().getDiscount().calculateDiscountAmount(l.getQty(), l.getProduct().getUnitCost()));
             sb.append("\nSubtotal: ");
             double subtotal = l.getQty() * l.getProduct().getUnitCost();
-            total = total + subtotal;
+            total +=  subtotal;
             sb.append(subtotal);
             
         }
@@ -67,5 +57,5 @@ public class Receipt {
         sb.append(total);
         return sb.toString();
     }
-    
+
 }

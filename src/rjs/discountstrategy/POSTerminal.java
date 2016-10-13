@@ -26,6 +26,6 @@ public class POSTerminal {
     }
 
     public final void addDiscountedProductToSale(String productID, double purchasedQuantity) {
-       receipt.addProduct(productID, purchasedQuantity);
+       receipt.addProduct(productID, purchasedQuantity, ds);
     }
 }

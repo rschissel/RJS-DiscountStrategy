@@ -12,12 +12,10 @@ package rjs.discountstrategy;
 public class LineItem {
 
     private Product product;
-    private Discount discount;
-    
     private double qty;
     private DataStore db;
     
-    public LineItem(String productID, double quantity,DataStore db){
+    public LineItem(String productID, double quantity, DataStore db){
         this.setDb(db);
         this.setQty(quantity);
         this.product = db.findProductByID(productID);
@@ -28,6 +26,7 @@ public class LineItem {
     }
 
     public void setQty(double qty) {
+        
         this.qty = qty;
     }
 
